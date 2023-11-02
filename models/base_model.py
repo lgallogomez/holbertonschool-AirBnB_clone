@@ -9,7 +9,6 @@ common attributes/methods for other classes
 
 import datetime
 import uuid
-import json
 
 
 class BaseModel:
@@ -41,4 +40,4 @@ class BaseModel:
         dicti["__class__"] = self.__class__.__name__
         dicti['created_at'] = self.created_at.isoformat()
         dicti['updated_at'] = self.updated_at.isoformat()
-        return dictionary
+        return dicti
