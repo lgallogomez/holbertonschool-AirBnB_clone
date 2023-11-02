@@ -16,9 +16,12 @@ class BaseModel:
     This class will be the base for a series of subclasses
     """
     def __init__(self, *args, **kwargs):
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
+        #if kwargs:
+         #   self.create_from_dic(**kwargs)
+        #else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.datetime.now()
+            self.updated_at = datetime.datetime.now()
     
     def __str__(self):
         """
