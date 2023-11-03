@@ -1,51 +1,37 @@
-#!/usr/bin/python3
-
-
-"""
-This module will define the BaseModel class, with 
-common attributes/methods for other classes
-"""
-
+#!/usr/bin/python
 
 from datetime import datetime
 import uuid
 
+class Base_Model:
 
-class BaseModel:
-    """
-    This class will be the base for a series of subclasses
-    """
-    def __init__(self, *args, **kwargs):
-        if kwargs:
-            kwargs['created_at'] = datetime.strptime(kwargs['created_at'], "%Y-%m-%dT%H:%M:%S.%f")
-            kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
-            for key, value in kwargs.items():
-                if key != '__class__':
-                    setattr(self, key, value)
+    def __init__(self):
+        self.id = uuid.uuid4() 
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
-        else:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
-    
     def __str__(self):
-        """
-        Returns print format [<class name>] (<self.id>) <self.__dict__>
-        """
-        return(f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
+        return(f"{__class__.__name__} ({self.id}) {self.__dict__}")
 
     def save(self):
-        """
-        Updates the public instance attribute updated_at
-        """
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = self.updated_at.now()
 
     def to_dict(self):
-        """
-        Returns a dictionary containing all keys/values of the instance
-        """
-        dicti = vars(self)
-        dicti["__class__"] = self.__class__.__name__
-        dicti['created_at'] = self.created_at.isoformat()
-        dicti['updated_at'] = self.updated_at.isoformat()
-        return dicti
+        obj_dict = {
+            "__class__": self.__dict__,
+            "id": self.id,
+            "created_at": self.created_at.isoformat(),
+            "updated_at": self.updated_at.isoformat(),
+        }
+        return(obj_dict)
+
+mi_clase = Base_Model()
+mi_clase.name = "My first model"
+mi_clase.mynumber = 89
+
+mi_clase.save()
+print(mi_clase)
+mi_clase.save()
+print("-----")
+print(mi_clase)
+
