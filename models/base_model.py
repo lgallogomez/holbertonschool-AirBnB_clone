@@ -3,7 +3,7 @@
 from datetime import datetime
 import uuid
 
-class Base_Model:
+class BaseModel:
 
     def __init__(self):
         self.id = str(uuid.uuid4()) 
@@ -24,3 +24,6 @@ class Base_Model:
         dicti["created_at"]: self.created_at.isoformat()
         dicti["updated_at"]: self.updated_at.isoformat()  
         return dicti
+
+bm = BaseModel()
+print(type(bm.id))
