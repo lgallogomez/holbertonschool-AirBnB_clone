@@ -24,6 +24,3 @@ class BaseModel:
         dicti["created_at"]: self.created_at.isoformat()
         dicti["updated_at"]: self.updated_at.isoformat()  
         return dicti
-
-bm = BaseModel()
-print(type(bm.id))
