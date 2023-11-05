@@ -14,13 +14,14 @@ class BaseModel:
         return(f"[{__class__.__name__}] ({self.id}) {self.__dict__}")
 
     def save(self):
-        self.updated_at = self.updated_at.now()
+        self.updated_at = self.datetime.now()
 
     def to_dict(self):
         dicti = {}
         for key, value in vars(self).items():    
            dicti[key] = value
-        dicti["__class__"]: __class__.__name__
-        dicti["created_at"]: self.created_at.isoformat()
-        dicti["updated_at"]: self.updated_at.isoformat()  
+
+        dicti["__class__"] = self.__class__.__name__
+        dicti["created_at"] = self.created_at.isoformat()
+        dicti["updated_at"] = self.updated_at.isoformat()  
         return dicti
