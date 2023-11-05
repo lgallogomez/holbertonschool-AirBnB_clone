@@ -32,19 +32,3 @@ class BaseModel:
         dicti["created_at"] = self.created_at.isoformat()
         dicti["updated_at"] = self.updated_at.isoformat()  
         return dicti
-
-
-my_model = BaseModel()
-my_model.name = "My_First_Model"
-my_model.my_number = 89
-my_model_json = my_model.to_dict()
-print(my_model_json)
-print("----")
-new_model = BaseModel(**my_model_json)
-print(new_model)
-print(new_model.id)
-print(new_model)
-print(type(new_model.created_at))
-
-print("--")
-print(my_model is new_model)
