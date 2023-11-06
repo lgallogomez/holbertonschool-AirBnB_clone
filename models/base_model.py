@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+Storage = __import__('')
 from datetime import datetime
 import uuid
 
