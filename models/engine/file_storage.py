@@ -40,7 +40,7 @@ class FileStorage():
         reads json file and deserialize it into dictionary of objects
         '''
         try:
-            with open("self.__file_path", "r") as f:
+            with open(self.__file_path, "r") as f:
                 read_str = f.read()
                 self.__objects = json.loads(read_str)
         except Exception as e:
