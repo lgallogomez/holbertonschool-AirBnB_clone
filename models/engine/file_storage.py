@@ -51,8 +51,6 @@ class FileStorage():
                     class_list = key.split('.')
                     class_name = class_list[0]
                     new_object = eval(class_name)(**value)
-                    print("AQUIII")
-                    print(new_object)
                     FileStorage.__objects[key] = new_object
         except Exception as e:
             pass
