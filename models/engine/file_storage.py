@@ -2,13 +2,14 @@
 
 import json
 
+
 class FileStorage():
     '''
     class stores objects into a json file and puts 
     json file info into objects
     '''
-    __file_path = "File.json"
-    __objects = dict()
+    __file_path = "File.json" #info diccionario de diccionarios key: nombre de clase y id, value: dictionario con key: atributos, y value: valor atributos 
+    __objects = dict()   #info guardada como dictionario de objectos para luego poder usar los metodos con 
 
 
     def all(self):
@@ -27,21 +28,31 @@ class FileStorage():
         '''
         serializes objects in __objects into a json
         '''
+        
         to_save_dict = {}
-        for key, value in self.__objects.items():
-            to_save_dict[key] = value.to_dict()
 
-        with open(self.__file_path, "w") as f:
-             j_string = json.dumps(to_save_dict)
-             f.write(j_string)
+        for key, value in FileStorage.__objects.items():
+   #value es un objeto, .dict pasa el objeto a dictionario
+            to_save_dict[key] = value.to_dict() 
+            
+        with open(f'{FileStorage.__file_path}', "w") as f:
+            json.dump(to_save_dict, f)
     
     def reload(self):
         '''
         reads json file and deserialize it into dictionary of objects
         '''
+
+        from models.base_model import BaseModel 
         try:
             with open(self.__file_path, "r") as f:
-                read_str = f.read()
-                self.__objects = json.loads(read_str)
+                dict_of_dicts = json.load(f)
+                for key, value in dict_of_dicts.items():
+                    class_list = key.split('.')
+                    class_name = class_list[0]
+                    new_object = eval(class_name)(**value)
+                    print("AQUIII")
+                    print(new_object)
+                    FileStorage.__objects[key] = new_object
         except Exception as e:
             pass
