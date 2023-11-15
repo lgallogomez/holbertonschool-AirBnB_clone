@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+
+"""
+this module tests the class basemodel methods
+"""
+
+
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
