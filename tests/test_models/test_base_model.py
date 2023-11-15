@@ -27,7 +27,15 @@ class Test_Base_Model_outputs(unittest.TestCase):
         new_dict = new_object.to_dict()
         self.assertIs(type(new_dict), dict)
         self.assertIsNot(new_dict, new_object)
+        
+    def test_str(self):
+        new_object = BaseModel()
+        printed_obj = f'{new_object}'
+        sec_obj = BaseModel()
+        second_obj = f'{sec_obj}'
+        self.assertIs(type(printed_obj), str)
+        self.assertIs(len(printed_obj), len(second_obj) )
 
-
+        
 if __name__ == "__main__":
     unittest.main()

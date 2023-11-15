@@ -50,3 +50,4 @@ class BaseModel:
                     setattr(self, key, value)
         self.created_at = datetime.strptime(kwargs['created_at'], iso_formated_time)
         self.updated_at = datetime.strptime(kwargs['updated_at'], iso_formated_time)
+
