@@ -28,7 +28,7 @@ class Test_Base_Model_outputs(unittest.TestCase):
         empty_dict = {}
         self.assertIs(type(new_dict), dict)
         self.assertIsNot(new_dict, new_object)
-        self.assertIsNot(new_dict, empty_dict)
+        self.assertNotEqual(new_dict, empty_dict)
         
     def test_str(self):
         new_object = BaseModel()
