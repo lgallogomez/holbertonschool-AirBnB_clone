@@ -7,7 +7,7 @@ from datetime import datetime
 
 class Test_Base_Model_outputs(unittest.TestCase):
     '''
-    tests method in BaseModel class
+    tests methods in BaseModel class
     '''
     
     def test_save(self):
@@ -23,6 +23,10 @@ class Test_Base_Model_outputs(unittest.TestCase):
         self.assertNotEqual(first_save, second_save)
    
     def test_to_dict(self):
+        '''
+        test checks if dictionary is created from 
+        instance and if is not a n empty dictionary 
+        '''
         new_object = BaseModel()
         new_dict = new_object.to_dict()
         empty_dict = {}
@@ -31,6 +35,10 @@ class Test_Base_Model_outputs(unittest.TestCase):
         self.assertNotEqual(new_dict, empty_dict)
         
     def test_str(self):
+        '''
+        test checks if str prints what its designed to
+        and not a random text
+        '''
         new_object = BaseModel()
         printed_obj = f'{new_object}'
         sec_obj = BaseModel()
