@@ -13,6 +13,7 @@ import uuid
 
 
 iso_formated_time = '%Y-%m-%dT%H:%M:%S.%f'
+
 class BaseModel:
     '''
     class defines common methods for other classes
