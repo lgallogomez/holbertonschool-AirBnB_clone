@@ -1,15 +1,23 @@
 #!/usr/bin/python3
 
+
+"""
+This module contains methods that enables the storage in 
+a file of objects, also reloads the objects store so they
+can be used when opening the file again
+"""
+
+
 import json
 
 
 class FileStorage():
     '''
-    class stores objects into a json file and puts 
+    class stores objects into a json file and puts
     json file info into objects
     '''
-    __file_path = "File.json" #info diccionario de diccionarios key: nombre de clase y id, value: dictionario con key: atributos, y value: valor atributos 
-    __objects = dict()   #info guardada como dictionario de objectos para luego poder usar los metodos con 
+    __file_path = "File.json"
+    __objects = dict()
 
 
     def all(self):
@@ -17,7 +25,7 @@ class FileStorage():
         returns dictionary __objects
         '''
         return self.__objects
-    
+
     def new(self, obj):
         '''
         sets in __ojects dict of objects key and value
@@ -28,22 +36,20 @@ class FileStorage():
         '''
         serializes objects in __objects into a json
         '''
-        
         to_save_dict = {}
 
         for key, value in FileStorage.__objects.items():
-   #value es un objeto, .dict pasa el objeto a dictionario
-            to_save_dict[key] = value.to_dict() 
-            
+            to_save_dict[key] = value.to_dict()
+
         with open(f'{FileStorage.__file_path}', "w") as f:
             json.dump(to_save_dict, f)
-    
+
     def reload(self):
         '''
         reads json file and deserialize it into dictionary of objects
         '''
 
-        from models.base_model import BaseModel 
+        from models.base_model import BaseModel
         try:
             with open(self.__file_path, "r") as f:
                 dict_of_dicts = json.load(f)
