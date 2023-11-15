@@ -14,8 +14,8 @@ import uuid
 
 iso_formated_time = '%Y-%m-%dT%H:%M:%S.%f'
 
-class BaseModel:
 
+class BaseModel:
 
 
     """
