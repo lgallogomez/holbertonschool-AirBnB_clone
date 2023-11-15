@@ -34,7 +34,8 @@ class Test_Base_Model_outputs(unittest.TestCase):
         sec_obj = BaseModel()
         second_obj = f'{sec_obj}'
         self.assertIs(type(printed_obj), str)
-        self.assertIs(len(printed_obj), len(second_obj) )
+        self.assertIs(len(printed_obj), len(second_obj))
+        self.assertNotEqual(printed_obj, "Fake")
 
         
 if __name__ == "__main__":
