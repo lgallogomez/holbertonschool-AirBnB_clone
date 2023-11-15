@@ -2,7 +2,7 @@
 
 
 """
-This module contains methods that enables the storage in 
+This module contains methods that enables the storage in
 a file of objects, also reloads the objects store so they
 can be used when opening the file again
 """
@@ -19,7 +19,6 @@ class FileStorage():
     __file_path = "File.json"
     __objects = dict()
 
-
     def all(self):
         '''
         returns dictionary __objects
@@ -31,7 +30,7 @@ class FileStorage():
         sets in __ojects dict of objects key and value
         '''
         self.__objects[f'{obj.__class__.__name__}.{obj.id}'] = obj
-    
+
     def save(self):
         '''
         serializes objects in __objects into a json
