@@ -1,5 +1,12 @@
 #!/usr/bin/python
 
+
+'''
+this module defines a class that defines methods and
+attributes for other classes
+'''
+
+
 from datetime import datetime
 from models import storage
 import uuid
@@ -7,19 +14,14 @@ import uuid
 
 iso_formated_time = '%Y-%m-%dT%H:%M:%S.%f'
 class BaseModel:
-
-
     '''
     class defines common methods for other classes
     '''
-
     def __init__(self, *args, **kwargs):
         '''
         if intance args receives a dict, makes dict an obj
         if not, creates object & stores in dict of objects using storage.new
         '''
-
-
         if kwargs:
             self.from_kwargs(**kwargs)
         else:
