@@ -19,7 +19,8 @@ class HBNBCommand(cmd.Cmd):
             model = BaseModel()
             model.save()
             print(model.id)
-    
+        else:
+            print("** class name missing **")
     def emptyline(self):
         pass
     
