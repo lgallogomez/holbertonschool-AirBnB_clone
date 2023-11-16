@@ -30,6 +30,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_show(self, line):
+
         if not line:
             return
         
@@ -44,12 +45,12 @@ class HBNBCommand(cmd.Cmd):
         if model not in list_of_models:
             return
 
-        mi_llave = f"{model}.{model_id}"
+        object_key = f"{model}.{model_id}"
 
-        if mi_llave not in storage.all():
+        if object_key not in storage.all():
             return
 
-        print(storage.all()[mi_llave])
+        print(storage.all()[object_key])
 
     def emptyline(self):
         pass
