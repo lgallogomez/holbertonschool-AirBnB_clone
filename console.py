@@ -10,13 +10,15 @@ class HBNBCommand(cmd.Cmd):
     """
     class that inherits all cmd's methods
     """
-    
-    prompt = "(hbnb) "
+    prompt = "(hbnb)"
     
     def emptyline(self):
         pass
     
-    def do_quit(self):
+    def do_quit(self, arg):
+        sys.exit(1)
+
+    def do_EOF(self):
         True
 
 if __name__ == "__main__":
