@@ -15,12 +15,15 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb)"
 
     def do_create(self, model):
-        if model:
+        if model != "BaseModel" and model != "":
+            print("** class doesn't exist **")
+        elif (model == "BaseModel"):
             model = BaseModel()
             model.save()
             print(model.id)
-        else:
+        elif not model:
             print("** class name missing **")
+
     def emptyline(self):
         pass
     
