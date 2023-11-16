@@ -20,6 +20,5 @@ class test_file_storage(unittest.TestCase):
         """
         tests if method returns a dict of objects
         """
-        new_object = BaseModel()
         new_storage = storage.all()
         self.assertNotEqual(new_storage, {})
