@@ -7,7 +7,7 @@ this module test filestorage class methods
 
 import unittest
 
-from models.engine import file_storage
+from models import storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 
@@ -21,5 +21,5 @@ class test_file_storage(unittest.TestCase):
         tests if method returns a dict of objects
         """
         new_object = BaseModel()
-        new_storage = FileStorage()
-        self.assertNotEqual(new_storage.all, {})
+        new_storage = storage.all()
+        self.assertNotEqual(new_storage, {})
