@@ -6,7 +6,9 @@ This program contains the entry point of the command interpreter
 
 import cmd, sys
 from models.base_model import BaseModel
-from models import engine
+from models import storage
+
+list_of_models = ["BaseModel"]
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -15,6 +17,9 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb)"
 
     def do_create(self, model):
+        '''
+        creates a model & prints id
+        '''
         if model != "BaseModel" and model != "":
             print("** class doesn't exist **")
         elif (model == "BaseModel"):
@@ -23,6 +28,28 @@ class HBNBCommand(cmd.Cmd):
             print(model.id)
         elif not model:
             print("** class name missing **")
+
+    def do_show(self, line):
+        if not line:
+            return
+        
+        model, model_id = line.split()
+        
+        if not model:
+            return
+
+        if not model_id:
+            return
+
+        if model not in list_of_models:
+            return
+
+        mi_llave = f"{model}.{model_id}"
+
+        if mi_llave not in storage.all():
+            return
+
+        print(storage.all()[mi_llave])
 
     def emptyline(self):
         pass
