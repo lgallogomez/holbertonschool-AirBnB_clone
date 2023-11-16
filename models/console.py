@@ -16,7 +16,7 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         pass
     
-    def do_quit(self, arg):
+    def do_quit(self):
         return True
 
 if __name__ == "__main__":
