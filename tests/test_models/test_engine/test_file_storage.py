@@ -22,3 +22,8 @@ class test_file_storage(unittest.TestCase):
         """
         new_storage = storage.all()
         self.assertNotEqual(new_storage, {})
+    
+    def test_objects(self):
+        new_obj = BaseModel()
+        new_storage = FileStorage()
+        self.assertNotEquals(new_storage, [])
