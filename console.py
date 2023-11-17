@@ -32,23 +32,28 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
 
         if not line:
-            return("** class name missing **")
+            return print("** class name missing **")
 
         model, model_id, *args = (*line.split(), None, None)
 
         if not model_id:
-            return("** instance id missing **")
+            return print("** instance id missing **")
 
         if not model:
-            return("** class name missing **")
+            return print("** class name missing **")
 
         if model not in list_of_models:
-            return("** class doesn't exist **")
+            return print ("** class doesn't exist **")
 
         object_key = f"{model}.{model_id}"
 
         if object_key not in storage.all():
             return print("** no instance found **")
+        
+        objects = storage.all()
+        object_to_return = objects.get(object_key)
+        return print(f"{object_to_return}")
+        
 
     def emptyline(self):
         pass
