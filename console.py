@@ -32,8 +32,8 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
 
         if not line:
-            print("** class name missing **")
-            return
+            return print("** class name missing **")
+            
 
         model, model_id, *other_args = (line.split(), None, None)
 
