@@ -37,18 +37,18 @@ class HBNBCommand(cmd.Cmd):
         model, model_id = line.split()
         
         if not model:
-            return
+            print("** class name missing **")
 
         if not model_id:
-            return
+            print("** instance id missing **")
 
         if model not in list_of_models:
-            return
+            print("** class doesn't exist **")
 
         object_key = f"{model}.{model_id}"
 
         if object_key not in storage.all():
-            return
+            print("** no instance found **")
 
         print(storage.all()[object_key])
 
