@@ -73,6 +73,7 @@ class HBNBCommand(cmd.Cmd):
 
         objects = storage.all()
         objects.pop(object_key)
+        objects.storage.save()
 
     def do_all(self, line):
         if not line:
