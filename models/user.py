@@ -6,7 +6,7 @@ BaseModel attributes and methods
 """
 
 from models.base_model import BaseModel
-class user(BaseModel):
+class User(BaseModel):
     """
     Class inherits from BaseModel 
     """
