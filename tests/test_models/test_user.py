@@ -20,4 +20,4 @@ class Test_User_Model_outputs(unittest.TestCase):
     def test_email(self):
         new_user = User()
         new_user.email = "juanito@gmail.com"
-        self.assertIsNotNone(new_user.email)
+        self.assertTrue(hasattr(new_user.email))
