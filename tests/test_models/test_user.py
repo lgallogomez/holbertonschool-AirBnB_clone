@@ -21,4 +21,5 @@ class Test_User_Model_outputs(unittest.TestCase):
         new_user = User()
         new_user.email = "juanito@gmail.com"
         new_user_no_email = User()
+        new_user_no_email.email = None
         self.assertNotEqual(new_user.email, new_user_no_email.email)
