@@ -75,7 +75,41 @@ class HBNBCommand(cmd.Cmd):
         objects.pop(object_key)
         objects = storage.save()
 
+    def do_update(self, line):
+        if not line:
+            return print("** class name missing **")
+        
+        model, model_id, attr_name, attr_value, *args = (*line.split(), None, None, None, None)
+
+        if model not in list_of_models:
+            return print ("** class doesn't exist **")
+
+        if not model_id:
+            return print("** instance id missing **")
+        
+        if not attr_name:
+            return print("** attribute name missing **")
+        
+        if not attr_value:
+            return print("** value missing **")
+
+        object_key = f"{model}.{model_id}"
+
+        if object_key not in storage.all():
+            return print("** no instance found **")
+        
+        dict_of_objs = storage.all()
+        print(type(dict_of_objs))
+        object_keys_values = dict_of_objs.get(object_key)
+        print(type(object_keys_values))
+        attribute_name = f"{attr_name}"
+        attribute_value = f"{attr_value}"
+        object_key.attribute_name = attribute_value  #im trying to update the value of an attribute. 
+        #object_keys_values.update({attr_name: attr_value})
+        #dict_of_objs = storage.save()
+
     def do_all(self, line):
+
         if not line:
             objects = storage.all()
             return print(f"{objects}")
