@@ -49,7 +49,7 @@ class FileStorage():
         '''
 
         from models.base_model import BaseModel
-        from models.user import user
+        from models import user
         try:
             with open(self.__file_path, "r") as f:
                 dict_of_dicts = json.load(f)
