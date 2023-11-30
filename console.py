@@ -99,14 +99,10 @@ class HBNBCommand(cmd.Cmd):
             return print("** no instance found **")
         
         dict_of_objs = storage.all()
-        print(type(dict_of_objs))
-        object_keys_values = dict_of_objs.get(object_key)
-        print(type(object_keys_values))
-        attribute_name = f"{attr_name}"
-        attribute_value = f"{attr_value}"
-        object_key.attribute_name = attribute_value  #im trying to update the value of an attribute. 
-        #object_keys_values.update({attr_name: attr_value})
-        #dict_of_objs = storage.save()
+        instance_retrieved = dict_of_objs.get(object_key)
+        instance_retrieved.__setattr__(attr_name, attr_value)  #im trying to update the value of an attribute. 
+        instance_retrieved.save()
+        
 
     def do_all(self, line):
 
