@@ -5,7 +5,7 @@ Module defines user class. Inherits
 BaseModel attributes and methods
 """
 
-from models import BaseModel
+from models.base_model import BaseModel
 class user(BaseModel):
     """
     Class inherits from BaseModel 
