@@ -14,10 +14,10 @@ from datetime import datetime
 
 class Test_User_Model_outputs(unittest.TestCase):
     '''
-    tests methods in BaseModel class
+    tests methods in User class
     '''
 
-    def test_user_email(self):
+    def test_email(self):
         new_user = User()
         new_user.email = "juanito@gmail.com"
         new_user_no_email = User()
