@@ -8,7 +8,7 @@ import cmd, sys
 from models.base_model import BaseModel
 from models import storage
 
-list_of_models = ["BaseModel"]
+list_of_models = ["BaseModel", "user"]
 
 class HBNBCommand(cmd.Cmd):
     """
