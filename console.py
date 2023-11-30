@@ -6,7 +6,7 @@ This program contains the entry point of the command interpreter
 
 import cmd, sys
 from models.base_model import BaseModel
-from models.user import user
+from models import user
 from models import storage
 
 list_of_models = ["BaseModel", "user"]
