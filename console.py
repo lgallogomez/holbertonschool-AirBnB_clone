@@ -48,7 +48,7 @@ class HBNBCommand(cmd.Cmd):
         if not model:
             return print("** class name missing **")
 
-        if model not in list_of_models:
+        if model not in dict_of_models:
             return print ("** class doesn't exist **")
 
         object_key = f"{model}.{model_id}"
@@ -87,7 +87,7 @@ class HBNBCommand(cmd.Cmd):
         
         model, model_id, attr_name, attr_value, *args = (*line.split(), None, None, None, None)
 
-        if model not in list_of_models:
+        if model not in dict_of_models:
             return print ("** class doesn't exist **")
 
         if not model_id:
@@ -118,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
 
         model_to_print, *args = (*line.split(), None)
 
-        if model_to_print not in list_of_models:
+        if model_to_print not in dict_of_models:
             return print ("** class doesn't exist **")
 
         objects = storage.all()
