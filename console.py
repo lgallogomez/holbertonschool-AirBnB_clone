@@ -33,6 +33,7 @@ class HBNBCommand(cmd.Cmd):
         if model in dict_of_models:
             model_instance = dict_of_models[model]()
             model_instance.save()
+            print(model_instance.id)
 
     def do_show(self, line):
 
