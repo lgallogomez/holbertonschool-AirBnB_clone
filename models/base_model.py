@@ -36,7 +36,7 @@ class BaseModel:
         """
         defines and returns the format to print
         """
-        return (f"[{__class__.__name__}] ({self.id}) {self.__dict__}")
+        return (f"[{type(self).__name__}] ({self.id}) {self.__dict__}")
 
     def save(self):
         """
@@ -52,7 +52,7 @@ class BaseModel:
         dicti = {}
         for key, value in vars(self).items():
             dicti[key] = value
-        dicti["__class__"] = self.__class__.__name__
+        dicti["__class__"] = type(self).__name__
         dicti["created_at"] = self.created_at.isoformat()
         dicti["updated_at"] = self.updated_at.isoformat()
         return dicti
