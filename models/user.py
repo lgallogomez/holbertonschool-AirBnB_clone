@@ -10,12 +10,13 @@ class User(BaseModel):
     """
     Class inherits from BaseModel 
     """
-
+    email = str()
+    password = str()
+    first_name = str()
+    last_name = str()
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.email = str()
-        self.password = str()
-        self.first_name = str()
-        self.last_name = str()
+        
 
     

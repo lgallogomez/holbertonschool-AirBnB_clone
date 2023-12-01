@@ -10,7 +10,8 @@ class City(BaseModel):
     """
     class inherits methods & attributes of basemodel & initializes it's own
     """
+    state_id = str()
+    name = str()
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.state_id = str()
-        self.name = ""

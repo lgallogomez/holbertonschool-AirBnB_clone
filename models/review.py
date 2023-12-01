@@ -10,8 +10,9 @@ class Review(BaseModel):
     """
     class inherits methods & attributes of basemodel & initializes it's own
     """
+    place = str()
+    user_id = str()
+    text = str()
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.place = str()
-        self.user_id = str()
-        self.text = str()

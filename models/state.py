@@ -9,7 +9,7 @@ class State(BaseModel):
     """
     class creates an state
     """
-    
+    name = str()
+
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.name = str()
+        super().__init__(*args, **kwargs)   
