@@ -10,7 +10,7 @@ class Review(BaseModel):
     """
     class inherits methods & attributes of basemodel & initializes it's own
     """
-    place = str()
+    place_id = str()
     user_id = str()
     text = str()
 
