@@ -58,7 +58,7 @@ class HBNBCommand(cmd.Cmd):
         
         objects = storage.all()
         object_to_return = objects.get(object_key)
-        return print(f"{object_to_return}")
+        return print(object_to_return)
 
     def do_destroy(self, line):
         if not line:
@@ -69,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
         if not model_id:
             return print("** instance id missing **")
 
-        if model not in list_of_models:
+        if model not in dict_of_models:
             return print ("** class doesn't exist **")
 
         object_key = f"{model}.{model_id}"
