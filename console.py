@@ -9,7 +9,10 @@ from models.base_model import BaseModel
 from models.user import User
 from models import storage
 
-list_of_models = ["BaseModel", "user"]
+dict_of_models = {
+"BaseModel": BaseModel, 
+"User": User
+}
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -21,14 +24,15 @@ class HBNBCommand(cmd.Cmd):
         '''
         creates a model & prints id
         '''
-        if model != "BaseModel" and model != "":
+        if model not in dict_of_models and model != "":
             print("** class doesn't exist **")
-        elif (model == "BaseModel"):
-            model = BaseModel()
-            model.save()
-            print(model.id)
-        elif not model:
+        
+        if not model:
             print("** class name missing **")
+
+        if model in dict_of_models:
+            model_instance = dict_of_models[model]()
+            model_instance.save()
 
     def do_show(self, line):
 
