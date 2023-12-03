@@ -15,4 +15,4 @@ class test_amenity_attributes(unittest.TestCase):
     """
     def test_Amenity(self):
         new_amenity = Amenity()
-        self.assertTrue(hasattr(new_amenity, name))
+        self.assertTrue(hasattr(new_amenity, new_amenity.name))
