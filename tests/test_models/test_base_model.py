@@ -23,10 +23,7 @@ class Test_Base_Model_outputs(unittest.TestCase):
         '''
         new_object = BaseModel()
         new_object.save()
-        first_save = new_object.updated_at
-        new_object.save()
-        second_save = new_object.updated_at
-        self.assertNotEqual(first_save, second_save)
+        self.assertEqual(new_object.updated_at, datetime.now)
    
     def test_to_dict(self):
         '''
