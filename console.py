@@ -4,7 +4,8 @@
 This program contains the entry point of the command interpreter
 """
 
-import cmd, sys
+import cmd
+import sys
 from models.base_model import BaseModel
 from models.user import User
 from models.place import Place
@@ -14,13 +15,14 @@ from models.review import Review
 from models import storage
 
 dict_of_models = {
-"BaseModel": BaseModel, 
-"User": User, 
-"Place": Place,
-"City": City,
-"Amenity": Amenity,
-"Review": Review
+    "BaseModel": BaseModel, 
+    "User": User, 
+    "Place": Place,
+    "City": City,
+    "Amenity": Amenity,
+    "Review": Review
 }
+
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -34,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
         '''
         if model not in dict_of_models and model != "":
             print("** class doesn't exist **")
-        
+
         if not model:
             print("** class name missing **")
 
@@ -57,7 +59,7 @@ class HBNBCommand(cmd.Cmd):
             return print("** class name missing **")
 
         if model not in dict_of_models:
-            return print ("** class doesn't exist **")
+            return print("** class doesn't exist **")
 
         object_key = f"{model}.{model_id}"
 
@@ -78,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
             return print("** instance id missing **")
 
         if model not in dict_of_models:
-            return print ("** class doesn't exist **")
+            return print("** class doesn't exist **")
 
         object_key = f"{model}.{model_id}"
 
@@ -127,7 +129,7 @@ class HBNBCommand(cmd.Cmd):
         model_to_print, *args = (*line.split(), None)
 
         if model_to_print not in dict_of_models:
-            return print ("** class doesn't exist **")
+            return print("** class doesn't exist **")
 
         objects = storage.all()
         return print(f"{objects}")
