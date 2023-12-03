@@ -7,11 +7,19 @@ This program contains the entry point of the command interpreter
 import cmd, sys
 from models.base_model import BaseModel
 from models.user import User
+from models.place import Place
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 from models import storage
 
 dict_of_models = {
 "BaseModel": BaseModel, 
-"User": User
+"User": User, 
+"Place": Place,
+"City": City,
+"Amenity": Amenity,
+"Review": Review
 }
 
 class HBNBCommand(cmd.Cmd):
