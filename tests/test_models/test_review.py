@@ -15,6 +15,6 @@ class test_review_attributes(unittest.TestCase):
     """
     def test_Review(self):
         new_review = Review()
-        self.assertTrue(hasattr(new_review.place_id))
-        self.assertTrue(hasattr(new_review.user_id))
-        self.assertTrue(hasattr(new_review.text))
+        self.assertTrue(hasattr(new_review, "place_id"))
+        self.assertTrue(hasattr(new_review, "user_id"))
+        self.assertTrue(hasattr(new_review, "text"))

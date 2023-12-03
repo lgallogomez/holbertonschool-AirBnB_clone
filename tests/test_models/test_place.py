@@ -15,4 +15,4 @@ class test_place_attributes(unittest.TestCase):
     """
     def test_Place(self):
         new_place = Place()
-        self.assertTrue(hasattr(new_place.name))
+        self.assertTrue(hasattr(new_place, "name"))

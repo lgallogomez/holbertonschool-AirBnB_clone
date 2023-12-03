@@ -15,4 +15,4 @@ class test_State_Model_outputs(unittest.TestCase):
     """
     def test_state(self):
         new_state = State()
-        self.assertTrue(hasattr(new_state.name))
+        self.assertTrue(hasattr(new_state, "name"))

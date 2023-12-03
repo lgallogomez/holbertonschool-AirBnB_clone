@@ -15,5 +15,5 @@ class test_City_Model_outputs(unittest.TestCase):
     """
     def test_city(self):
         new_city = City()
-        self.assertTrue(hasattr(new_city.state_id))
-        self.assertTrue(hasattr(new_city.name))
+        self.assertTrue(hasattr(new_city, "state_id"))
+        self.assertTrue(hasattr(new_city, "name"))
