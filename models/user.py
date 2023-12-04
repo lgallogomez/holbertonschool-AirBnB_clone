@@ -17,7 +17,7 @@ class User(BaseModel):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.email = str()
-        self.password = str()
-        self.first_name = str()
-        self.last_name = str()
+        email = str()
+        password = str()
+        first_name = str()
+        last_name = str()
