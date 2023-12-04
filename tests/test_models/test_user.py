@@ -19,5 +19,16 @@ class Test_User_Model_outputs(unittest.TestCase):
 
     def test_email(self):
         new_user = User()
-        new_user.email = "juanito@gmail.com"
         self.assertTrue(hasattr(new_user, "email"))
+    
+    def test_password(self):
+        new_user = User()
+        self.assertTrue(hasattr(new_user, "password"))
+    
+    def test_first_name(self):
+        new_user = User()
+        self.assertTrue(hasattr(new_user, "first_name"))
+        
+    def test_last_name(self):
+        new_user = User()    
+        self.assertTrue(hasattr(new_user, "last_name"))
